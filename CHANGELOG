@@ -1,3 +1,24 @@
+Changes in version 0.25.3 (2024-03-26)
+
+  Fixes:
+    - Fixes some issues with generated pkldoc websites (#357, #362)
+    - Fixes a bug where amending a module that defines an abstract class might
+      cause a Java AssertionError (#319)
+    - Fixes a bug where a for/when generator within a lambda declared with new
+      {} syntax might not resolve variables correctly (#297)
+    - Fixes a bug where const and local modifiers are not exported when
+      obtaining a class’s mirror in pkl:reflect (#265).
+
+  Miscellaneous:
+    - Documentation improvements (#93, #106, #143, #205, #214, #224, #257, #270,
+      #282, #283, #299, #337, #340)
+
+    - Build script improvements (#253, #314, #333, #338)
+
+  Changes:
+    Add jpkl to the set of artifacts released to GitHub (#314)
+
+
 Changes in version 0.25.2 (2024-02-08)
 
   Fixes:
