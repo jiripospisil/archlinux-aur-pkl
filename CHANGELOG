@@ -1,3 +1,11 @@
+Changes in version 0.26.0 (2024-16-17)
+
+This release brings Windows support, improvements to controlling how Pkl talks
+over HTTP, and also fixes a scoping bug around typealiases.
+
+https://pkl-lang.org/main/current/release-notes/0.26.html
+
+
 Changes in version 0.25.3 (2024-03-26)
 
   Fixes:
