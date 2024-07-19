@@ -1,9 +1,42 @@
-Changes in version 0.26.0 (2024-16-17)
+Changes in version 0.26.2 (2024-07-18)
 
-This release brings Windows support, improvements to controlling how Pkl talks
-over HTTP, and also fixes a scoping bug around typealiases.
+  Fixes:
+    - Fixes a possible race condition where multiple concurrent Pkl evaluations
+      results in a thrown exception when downloading packages (#584).
 
-https://pkl-lang.org/main/current/release-notes/0.26.html
+
+Changes in version 0.26.1 (2024-06-28)
+
+  Fixes:
+    - Fixes a regression where native executables fail to run on some
+      environments that don’t support newer CPU features (#551).
+
+    - Fixes a PklBugException when passing . as a project directory to pkl
+      project resolve and pkl project package (#544).
+
+  Changes:
+    - Disable revocation checking of TLS certificates (#553).
+
+    - As part of HTTP improvements in 0.26, we unwittingly fixed a bug where Pkl
+      does not actually perform cert revocation checks when making HTTPS
+      requests. This fix, unfortunately, caused a regression in some cases. For
+      example, this happens when connecting to a server that bears a public
+      trust certificate, while in an environment with no internet access. This
+      is because the HTTP client needs to check the revocation status of all
+      certificates in the chain.
+
+      Revocation checks are a nuanced topic with some benefits, and also with its
+      own problem areas. For this reason, revocation checking is disabled for
+      Pkl’s native CLIs. Users of Pkl’s Java APIs will respect the revocation
+      settings set in the JVM.
+
+
+Changes in version 0.26.0 (2024-06-17)
+
+  This release brings Windows support, improvements to controlling how Pkl talks
+  over HTTP, and also fixes a scoping bug around typealiases.
+
+  https://pkl-lang.org/main/current/release-notes/0.26.html
 
 
 Changes in version 0.25.3 (2024-03-26)
@@ -24,7 +57,7 @@ Changes in version 0.25.3 (2024-03-26)
     - Build script improvements (#253, #314, #333, #338)
 
   Changes:
-    Add jpkl to the set of artifacts released to GitHub (#314)
+    - Add jpkl to the set of artifacts released to GitHub (#314)
 
 
 Changes in version 0.25.2 (2024-02-08)
